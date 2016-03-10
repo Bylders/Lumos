@@ -49,6 +49,12 @@ def setTemperature():
         return "False"
 
 
+@app.route('/getTemperature')
+def getTemperature():
+    global temp
+    return str(temp)
+
+
 @app.route('/setLuminosity')
 def setLuminosity():
     global luminosity
@@ -59,6 +65,12 @@ def setLuminosity():
         return "False"
     
 
+@app.route('/getLuminosity')
+def getLuminosity():
+    global luminosity
+    return str(luminosity)
+
+
 @app.route('/setPopulation')
 def setPopulation():
     global nPeople
@@ -67,6 +79,12 @@ def setPopulation():
         return "True"
     except:
         return "False"
+
+
+@app.route('/getPopulation')
+def getPopulation():
+    global nPeople
+    return str(nPeople)
 
 
 # @app.route('/user/<username>')
