@@ -8,10 +8,13 @@
   <div class="padding">
 
 
-    <button class="item" ng-click="supersonic.ui.drawers.close()"><super-navigate view-id="device-switch-RoomA">Room A</super-navigate></button>
-    <button class="item" ng-click="supersonic.ui.drawers.close()">Room B</button>
-    <button class="item" ng-click="supersonic.ui.drawers.close()">Room C</button>
+    <ul class="list">
+      <li class="item" onclick="supersonic.ui.drawers.close();supersonic.ui.layers.push(new supersonic.ui.View('device_switch#RoomA'))">Room A</li>
+      <li class="item" onclick="supersonic.ui.drawers.close();supersonic.ui.layers.push(new supersonic.ui.View('device_switch#RoomB'))">Room B</li>
+      <li class="item" onclick="supersonic.ui.drawers.close();supersonic.ui.layers.push(new supersonic.ui.View('device_switch#RoomC'))">Room C</li>
+    </ul>
 
+    
     <br>
     <button class="button button-positive button-block" ng-click="supersonic.ui.drawers.close()">
       Close this menu

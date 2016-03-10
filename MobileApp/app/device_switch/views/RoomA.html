@@ -62,10 +62,10 @@
     <script>
     	function updateStatus(s)
     	{
-    		var chk = $("#"+s);
-    		var deviceID = s[s.length-1];
-    		var state = chk.prop('checked')?1:0;
-    		$http.get("http://SERVER_ADDRESS/setDeviceStatus?deviceId="+deviceID+"&state="+state);
+          var chk = $("#"+s);
+          var deviceID = s[s.length-1];
+      		var state = chk.prop('checked')?1:0;
+      		$.get("http://"+SERVER_ADDRESS+"/setDeviceStatus?deviceId="+deviceID+"&state="+state);
       }
     </script>
 </div>

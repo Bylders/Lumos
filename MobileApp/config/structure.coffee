@@ -49,7 +49,7 @@ module.exports =
     left:
       id: "RoomsDrawer"
       location: "device_switch#drawer"
-      showOnAppLoad: true
+      showOnAppLoad: false
     options:
       animation: "swingingDoor"
   #
