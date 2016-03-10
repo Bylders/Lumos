@@ -1,0 +1,67 @@
+<div ng-controller="IndexController">
+
+  <super-navbar>
+    <super-navbar-title>
+      Device Switcher
+    </super-navbar-title>
+  </super-navbar>
+
+  <div class="item item-divider">
+    Switch Devices in Room A
+  </div>
+
+  	<div class="item item-toggle">
+       Oven
+       <label class="toggle toggle-royal">
+         <input type="checkbox" id="deviceA1" onclick="updateStatus(this.id);" ng-model="statusBarEnabled1">
+         <div class="track">
+           <div class="handle"></div>
+         </div>
+       </label>
+    </div>
+  	<div class="item item-toggle">
+       Refrigerator
+       <label class="toggle toggle-royal">
+         <input type="checkbox" id="deviceA2" onclick="updateStatus(this.id);" ng-model="statusBarEnabled2">
+         <div class="track">
+           <div class="handle"></div>
+         </div>
+       </label>
+    </div>
+  	<div class="item item-toggle">
+       Fan
+       <label class="toggle toggle-royal">
+         <input type="checkbox" id="deviceA3" onclick="updateStatus(this.id);" ng-model="statusBarEnabled3">
+         <div class="track">
+           <div class="handle"></div>
+         </div>
+       </label>
+    </div>
+  	<div class="item item-toggle">
+       Light
+       <label class="toggle toggle-royal">
+         <input type="checkbox" id="deviceA4" onclick="updateStatus(this.id);" ng-model="statusBarEnabled4">
+         <div class="track">
+           <div class="handle"></div>
+         </div>
+       </label>
+    </div>
+  	<div class="item item-toggle">
+       Television
+       <label class="toggle toggle-royal">
+         <input type="checkbox" id="deviceA5" onclick="updateStatus(this.id);" ng-model="statusBarEnabled5">
+         <div class="track">
+           <div class="handle"></div>
+         </div>
+       </label>
+    </div>
+    <script>
+    	function updateStatus(s)
+    	{
+    		var chk = $("#"+s);
+    		var deviceID = s[s.length-1];
+    		var state = chk.prop('checked')?1:0;
+    		$.get("http://SERVER_ADDRESS/setDeviceStatus?deviceId="+deviceID+"&state="+state);
+      }
+    </script>
+</div>

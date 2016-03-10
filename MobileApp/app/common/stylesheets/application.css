@@ -1,0 +1,10 @@
+.supersonic-navbar-mock {
+  background-color: #00B5FF !important;
+  text-align: center;
+  font-weight: 600;
+}
+
+#temperature_val {
+	color: red;
+	font-size: 100px;
+}
