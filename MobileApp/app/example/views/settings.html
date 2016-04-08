@@ -8,13 +8,15 @@
 
   <h3>Settings</h3>
 
-  <p> Current Server Set at: <b><script>document.write(SERVER_ADDRESS)</script></b></p> 
-  <p> Set new server: </p>
+  <p> Current Server Set at: <b id="SERVER_ADD"><script>document.write(SERVER_ADDRESS)</script></b></p> 
+  <p> Set new server: </p> 
   <input type="text" id="newServer" placeholder="Write new server address..."></input>
   <button id="updateServer">Update Server</button>
   <script>
   $("#updateServer").click(function(){
     SERVER_ADDRESS = $("#newServer").val();
+    $("#SERVER_ADD").html(SERVER_ADDRESS);
   });
+  </script>
 
 </div>

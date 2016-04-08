@@ -6,10 +6,8 @@
     </super-navbar-title>
   </super-navbar>
 
-<div class="item item-icon-left item-icon-right" ng-click="supersonic.ui.drawers.open('left')">
-      <i class="icon icon-accessory super-navicon"></i>
-      Select Room
-      <i class="icon icon-accessory super-chevron-right"></i>
+<div class="item item-icon-left item-icon-right">
+      Select Room By swiping from left
     </div>
   <div class="item item-divider">
     Switch Devices in Room C
@@ -18,7 +16,7 @@
     <div class="item item-toggle">
        Oven
        <label class="toggle toggle-royal">
-         <input type="checkbox" id="deviceA1" onclick="updateStatus(this.id);" ng-model="statusBarEnabled1">
+         <input type="checkbox" id="0" onclick="updateStatus(this.id);" ng-model="statusBarEnabled1">
          <div class="track">
            <div class="handle"></div>
          </div>
@@ -27,7 +25,7 @@
     <div class="item item-toggle">
        Refrigerator
        <label class="toggle toggle-royal">
-         <input type="checkbox" id="deviceA2" onclick="updateStatus(this.id);" ng-model="statusBarEnabled2">
+         <input type="checkbox" id="1" onclick="updateStatus(this.id);" ng-model="statusBarEnabled2">
          <div class="track">
            <div class="handle"></div>
          </div>
@@ -36,7 +34,7 @@
     <div class="item item-toggle">
        Fan
        <label class="toggle toggle-royal">
-         <input type="checkbox" id="deviceA3" onclick="updateStatus(this.id);" ng-model="statusBarEnabled3">
+         <input type="checkbox" id="2" onclick="updateStatus(this.id);" ng-model="statusBarEnabled3">
          <div class="track">
            <div class="handle"></div>
          </div>
@@ -45,7 +43,7 @@
     <div class="item item-toggle">
        Light
        <label class="toggle toggle-royal">
-         <input type="checkbox" id="deviceA4" onclick="updateStatus(this.id);" ng-model="statusBarEnabled4">
+         <input type="checkbox" id="3" onclick="updateStatus(this.id);" ng-model="statusBarEnabled4">
          <div class="track">
            <div class="handle"></div>
          </div>
@@ -54,7 +52,7 @@
     <div class="item item-toggle">
        Television
        <label class="toggle toggle-royal">
-         <input type="checkbox" id="deviceA5" onclick="updateStatus(this.id);" ng-model="statusBarEnabled5">
+         <input type="checkbox" id="4" onclick="updateStatus(this.id);" ng-model="statusBarEnabled5">
          <div class="track">
            <div class="handle"></div>
          </div>
@@ -66,7 +64,7 @@
         var chk = $("#"+s);
         var deviceID = s[s.length-1];
         var state = chk.prop('checked')?1:0;
-        $.get("http://"+SERVER_ADDRESS+"/setDeviceStatus?deviceId="+deviceID+"&state="+state);
+        $.get("http://"+SERVER_ADDRESS+"/setDeviceStatus?roomID=2&Id="+ID+"&state="+state);
       }
     </script>
 </div>

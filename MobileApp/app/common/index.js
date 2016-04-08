@@ -11,12 +11,12 @@ $(document).ready(function(){
     $("#btn-ac-dec").click(function(){
         acTemp -= 1
         $("#temperature_val").html(acTemp+" °C");
-        //$.post('/actempmon',{'temp':acTemp.toString()});
+        $.post(SERVER_ADDRESS+'/setTemperature',{'temperature':acTemp.toString()});
     });
     $("#btn-ac-inc").click(function(){
         acTemp += 1
         $("#temperature_val").html(acTemp+" °C");
-        //$.post('/actempmon',{'temp':acTemp.toString()});    
+        $.post(SERVER_ADDRESS+'/setTemperature',{'temperature':acTemp.toString()});    
     });
     showMax();
 });
@@ -33,11 +33,11 @@ function showMax()
         }
         $("#temperature_val").css({"color":rgbToHex(R,0,B)});
         $("#temperature_val").html(acTemp+" °C");
-    //},'json');
-    // $.get('/atmg',function(data,status){
-    //     acTemp = data['temp'];
-    //     $("#acTempBox").html(acTemp+" °C");
-    // });
+    },'json');
+    $.get(SERVER_ADDRESS+'/getOptimalTemp',function(data,status){
+        acTemp = data['temperature'];
+        $("#temperature_val").html(acTemp+" °C");
+    });
     setTimeout(showMax, 300);
 }
 
