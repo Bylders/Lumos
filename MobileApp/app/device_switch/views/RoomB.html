@@ -64,7 +64,7 @@
         var chk = $("#"+s);
         var deviceID = s[s.length-1];
         var state = chk.prop('checked')?1:0;
-        $.get("http://"+SERVER_ADDRESS+"/setDeviceStatus?roomID=1&Id="+ID+"&state="+state);
+        $.get("http://"+SERVER_ADDRESS+"/setDeviceStatus?roomID=1&deviceId="+ID+"&state="+state);
       }
     </script>
 </div>

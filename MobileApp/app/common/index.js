@@ -7,21 +7,19 @@ var SERVER_ADDRESS = "192.168.1.14:5000";
 var acTemp = 0;
 
 $(document).ready(function(){
-    $("#temperature_val").html(acTemp+" °C");    
+    $("#temperature_val").html(acTemp+" °C");
     $("#btn-ac-dec").click(function(){
         acTemp -= 1
-        $("#temperature_val").html(acTemp+" °C");
-        $.post(SERVER_ADDRESS+'/setTemperature',{'temperature':acTemp.toString()});
+        showMax();
     });
     $("#btn-ac-inc").click(function(){
-        acTemp += 1
-        $("#temperature_val").html(acTemp+" °C");
-        $.post(SERVER_ADDRESS+'/setTemperature',{'temperature':acTemp.toString()});    
+        acTemp += 1    
+        showMax();
     });
-    showMax();
 });
 function showMax()
 {
+        //alert(SERVER_ADDRESS+'/setTemperature?val='+acTemp.toString());
 	    var low = 0,high = 50;
         var temp = acTemp;
         var R = 0,B = 0;
@@ -33,12 +31,14 @@ function showMax()
         }
         $("#temperature_val").css({"color":rgbToHex(R,0,B)});
         $("#temperature_val").html(acTemp+" °C");
-    },'json');
-    $.get(SERVER_ADDRESS+'/getOptimalTemp',function(data,status){
-        acTemp = data['temperature'];
-        $("#temperature_val").html(acTemp+" °C");
-    });
-    setTimeout(showMax, 300);
+        
+        $.get("http://"+SERVER_ADDRESS+'/setTemperature?val='+acTemp.toString());
+  //  },'json');
+    // $.get(SERVER_ADDRESS+'/getOptimalTemp',function(data,status){
+    //     acTemp = data['temperature'];
+    //     $("#temperature_val").html(acTemp+" °C");
+    // });
+//    setTimeout(showMax, 300);
 }
 
 function componentToHex(c) {
