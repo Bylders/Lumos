@@ -63,8 +63,9 @@
     	{
           var chk = $("#"+s);
           var ID = s[s.length-1];
-      		var state = chk.prop('checked')?1:0;
-      		$.get("http://"+SERVER_ADDRESS+"/setDeviceStatus?roomID=0&deviceId="+ID+"&state="+state);
+      	 	var state = chk.prop('checked')?1:0;
+      		SERVER_ADDRESS = localStorage.getItem("SERVER_ADDRESS");
+          $.get("http://"+SERVER_ADDRESS+"/setDeviceStatus?roomID=0&deviceId="+ID+"&state="+state);
       }
     </script>
 </div>
